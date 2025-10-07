@@ -26,7 +26,7 @@ def cargar_paises_desde_csv(ruta_archivo):
                         "continente" : fila["continente"],
                     })
                 except ValueError:
-                    print(f"Advertencia: Se omitió una fila por falta de claves esperadas (nombre, poblacion, etc.).")
+                    print(f"Advertencia: Se omitió una fila: {fila} por falta de claves esperadas (nombre, poblacion, etc.).")
     except FileNotFoundError:
         print(f"Error: El archivo '{ruta_archivo}' no fue encontrado.")
     except Exception as error:
