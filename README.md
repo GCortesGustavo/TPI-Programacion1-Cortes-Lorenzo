@@ -49,7 +49,7 @@ Sigue estos pasos para configurar el proyecto en tu entorno local:
     ```
 
 3.  **Verificar el archivo de datos:**
-    Asegúrate de que el archivo `paises.csv` se encuentra en la raíz del proyecto. Este archivo contiene el dataset base necesario para que el programa funcione.
+    El archivo `paises.csv` se encuentra en la raíz del proyecto. Este archivo contiene el dataset base necesario para que el programa funcione.
 
 ## Instrucciones de Uso:
 

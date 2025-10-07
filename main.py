@@ -1,16 +1,26 @@
 from utils.menu import mostrar_menu
+from utils.carga_datos import cargar_paises_desde_csv
 
 def main():
-    # lista_paises = cargar_datos_csv('paises.csv')
+    NOMBRE_ARCHIVO_CSV = "paises.csv"
 
-    print('Bienvenido al sistema de gestión de países')
+    lista_paises = cargar_paises_desde_csv(NOMBRE_ARCHIVO_CSV)
+    
+    if not lista_paises:
+        print("No se cargaron los datos o el archivo está vacío. El programa se cerrará")
+        return
+
+    print(f"\n¡Carga de datos exitosa! Se cargaron {len(lista_paises)} países.")
+    print("Ejemplo de datos del primer país:", lista_paises[5])
+    
+    print("Bienvenido al sistema de gestión de países")
 
     bandera_menu_princial :bool = True
 
     while bandera_menu_princial:
         mostrar_menu()
 
-        opcion_menu :str = input('Selecciona una opción del menú: ')
+        opcion_menu :str = input("Selecciona una opción del menú: ")
 
         if opcion_menu == "1":
             print("\nHas elegido la opción 1: Buscar país por nombre")
