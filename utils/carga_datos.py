@@ -1,35 +1,39 @@
-import csv
-
 def cargar_paises_desde_csv(ruta_archivo):
-    #Se cargan los datos de los países desde el archivo paises.csv
-    #y se devuelven como una lista de diccionarios
 
-    # Se utiliza un manejo de errores por si no se encuentra el archivo
-    # o si el formato de los datos son incorrectos en las filas.
-
-    lista_paises :list = []
-
+    lista_paises = []
     try:
-        with open(ruta_archivo, mode="r", encoding="utf-8") as archivo_csv:
-            # DictReader se utiliza para tratar a cada fila como diccionario.
-            lector_csv = csv.DictReader(archivo_csv)
+        with open(ruta_archivo, mode='r', encoding='utf-8') as archivo_csv:
+            next(archivo_csv)  # Lee y descarta la línea de encabezado
 
-            for fila in lector_csv:
-                try:
-                    población = int(fila["poblacion"])
-                    superficie = int(fila["superficie"])
+            for linea in archivo_csv:
+                linea_limpia = linea.strip()
+                
+                if not linea_limpia:
+                    continue
+                
+                objeto = linea_limpia.split(',')
+                
+                if len(objeto) == 4:
+                    try:
+                        nombre = objeto[0]
+                        poblacion = int(objeto[1])
+                        superficie = int(objeto[2])
+                        continente = objeto[3]
+                        
+                        lista_paises.append({
+                            'nombre': nombre,
+                            'poblacion': poblacion,
+                            'superficie': superficie,
+                            'continente': continente
+                        })
+                    except ValueError:
+                        print(f"Advertencia: Se omitió la fila para '{objeto[0]}' por datos numéricos inválidos.")
+                else:
+                    print(f"Advertencia: Se omitió una fila malformada: '{linea_limpia}'")
 
-                    lista_paises.append({
-                        "nombre" : fila["nombre"],
-                        "poblacion" : población,
-                        "superficie" : superficie,
-                        "continente" : fila["continente"],
-                    })
-                except ValueError:
-                    print(f"Advertencia: Se omitió una fila: {fila} por falta de claves esperadas (nombre, poblacion, etc.).")
     except FileNotFoundError:
         print(f"Error: El archivo '{ruta_archivo}' no fue encontrado.")
-    except Exception as error:
-        print(f"Ocurrió un error inesperado al leer el archivo: {error}")
+    except Exception as e:
+        print(f"Ocurrió un error inesperado al leer el archivo: {e}")
 
     return lista_paises
