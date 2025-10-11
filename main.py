@@ -1,5 +1,6 @@
-from utils.menu import mostrar_menu
+from utils.buscar_pais import buscar_pais_por_nombre
 from utils.carga_datos import cargar_paises_desde_csv
+from utils.menu import mostrar_menu
 
 def main():
     NOMBRE_ARCHIVO_CSV = "paises.csv"
@@ -24,6 +25,7 @@ def main():
 
         if opcion_menu == "1":
             print("\nHas elegido la opción 1: Buscar país por nombre")
+            buscar_pais_por_nombre(lista_paises)
             pass
         elif opcion_menu == "2":
             print("\nHas elegido la opción 2: Filtrar países por continente")
