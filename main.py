@@ -1,5 +1,6 @@
 from utils.menu import mostrar_menu
 from utils.carga_datos import cargar_paises_desde_csv
+from utils.filtros import gestionar_filtro_continente
 
 def main():
     NOMBRE_ARCHIVO_CSV = "paises.csv"
@@ -27,6 +28,7 @@ def main():
             pass
         elif opcion_menu == "2":
             print("\nHas elegido la opción 2: Filtrar países por continente")
+            gestionar_filtro_continente(lista_paises)
             pass
         elif opcion_menu == "3":
             print("\nHas elegido la opción 3: Filtrar países por población")
