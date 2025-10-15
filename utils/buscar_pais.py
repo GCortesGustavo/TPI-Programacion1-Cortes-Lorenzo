@@ -2,9 +2,9 @@ def buscar_pais_por_nombre(lista_paises):
     bandera_busqueda :bool = True
     pais = None
     while bandera_busqueda:
-            opcion: int = int(input("Ingresa 1 para buscar un país o 2 para salir: "))
+            opcion = input("Ingresa 1 para buscar un país o 2 para salir: ")
             try:
-                if opcion == 1:
+                if opcion == "1":
                     pais_buscado = input("Ingresa el nombre del país o las siglas a buscar: ")
                     pais_buscado = pais_buscado.lower()
                     for pais in lista_paises:
@@ -15,7 +15,7 @@ def buscar_pais_por_nombre(lista_paises):
                             print(f"el pais no se encontro")
                         except pais == "":
                             print("valor vacio")
-                if opcion == 2:
+                if opcion == "2":
                     bandera_busqueda = False
                     print("Saliendo de la búsqueda.")
             except ValueError:
