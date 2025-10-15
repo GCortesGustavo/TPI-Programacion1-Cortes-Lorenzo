@@ -1,5 +1,6 @@
 from utils.menu import mostrar_menu
 from utils.carga_datos import cargar_paises_desde_csv
+from utils.filtro_rango_poblacion import filtrar_por_rango_poblacion
 
 def main():
     NOMBRE_ARCHIVO_CSV = "paises.csv"
@@ -30,7 +31,7 @@ def main():
             pass
         elif opcion_menu == "3":
             print("\nHas elegido la opción 3: Filtrar países por población")
-            pass
+            filtrar_por_rango_poblacion(lista_paises)
         elif opcion_menu == "4":
             print("\nHas elegido la opción 4: Filtrar países por superficie")
             pass
