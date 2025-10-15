@@ -29,5 +29,5 @@ def gestionar_filtro_continente(lista_paises):
         poblacion_formateada = f"{pais['poblacion']:,}"
         superficie_formateada = f"{pais['superficie']:,}"
         
-        print(f"{pais['nombre']:<30} | {poblacion_formateada:>15} | {superficie_formateada:>18} | {pais['continente']:<15}")
+        print(f"{pais['nombre']:<20} | {poblacion_formateada:>15} | {superficie_formateada:>15} | {pais['continente']:<10}")
         print("-" * 85)

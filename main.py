@@ -1,6 +1,6 @@
 from utils.menu import mostrar_menu
 from utils.carga_datos import cargar_paises_desde_csv
-from utils.filtros import gestionar_filtro_continente
+from utils.filtro_continente import gestionar_filtro_continente
 
 def main():
     NOMBRE_ARCHIVO_CSV = "paises.csv"
