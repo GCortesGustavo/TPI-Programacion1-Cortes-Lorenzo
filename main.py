@@ -3,6 +3,7 @@ from utils.carga_datos import cargar_paises_desde_csv
 from utils.filtro_continente import gestionar_filtro_continente
 from utils.filtro_rango_poblacion import filtrar_por_rango_poblacion
 from utils.menu import mostrar_menu
+from utils.estadisticas import calcular_y_mostrar_estadisticas
 
 def main():
     NOMBRE_ARCHIVO_CSV = "paises.csv"
@@ -44,6 +45,7 @@ def main():
             pass
         elif opcion_menu == "6":
             print("\nHas elegido la opción 6: Mostrar estadísticas")
+            calcular_y_mostrar_estadisticas(lista_paises)
             pass
         elif opcion_menu == "7":
             print("\nGracias por utilizar el programa")
