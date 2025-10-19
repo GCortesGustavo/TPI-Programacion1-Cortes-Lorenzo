@@ -1,0 +1,41 @@
+<!-- Dentro de templates/buscar.html -->
+{% extends "layout.html" %}
+
+{% block title %}Buscar País{% endblock %}
+
+{% block content %}
+    <h1>Buscar País por Nombre (Búsqueda Parcial)</h1>
+    <form method="GET" action="/buscar">
+        <input type="text" name="query" placeholder="Nombre o parte del nombre..." value="{{ query }}">
+        <button type="submit">Buscar</button>
+        <a href="/buscar">Limpiar</a>
+    </form>
+
+    {% if paises_encontrados is not none %}
+        <h2>Resultados para "{{ query }}"</h2>
+        {% if paises_encontrados %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Continente</th>
+                        <th>Población</th>
+                        <th>Superficie (km²)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for pais in paises_encontrados %}
+                    <tr>
+                        <td>{{ pais.nombre }}</td>
+                        <td>{{ pais.continente }}</td>
+                        <td>{{ "{:,}".format(pais.poblacion) }}</td>
+                        <td>{{ "{:,}".format(pais.superficie) }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No se encontraron países que contengan "{{ query }}".</p>
+        {% endif %}
+    {% endif %}
+{% endblock %}

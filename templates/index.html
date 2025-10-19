@@ -1,21 +1,9 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Datos de Países</title>
-    <style>
-        body { font-family: sans-serif; margin: 2em; }
-        table { border-collapse: collapse; width: 100%; }
-        th, td { border: 1px solid #dddddd; text-align: left; padding: 8px; }
-        thead { background-color: #f2f2f2; }
-    </style>
-</head>
-<body>
+{% extends "layout.html" %}
 
-    <h1>Listado de Países del Mundo</h1>
-    <p>Datos cargados desde Python y Flask.</p>
+{% block title %}Lista Completa de Países{% endblock %}
 
+{% block content %}
+    <h1>Lista Completa de Países</h1>
     <table>
         <thead>
             <tr>
@@ -36,6 +24,4 @@
             {% endfor %}
         </tbody>
     </table>
-
-</body>
-</html>
+{% endblock %}

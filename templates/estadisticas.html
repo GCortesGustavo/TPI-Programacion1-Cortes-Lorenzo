@@ -1,0 +1,50 @@
+<!-- Dentro de templates/estadisticas.html -->
+{% extends "layout.html" %}
+
+{% block title %}Estadísticas Globales{% endblock %}
+
+{% block content %}
+    <h1>Panel de Estadísticas</h1>
+
+    <!-- Sección 1: Extremos de Población -->
+    <h2>Extremos de Población</h2>
+    <p>
+        <strong>País más poblado:</strong> 
+        {{ mas_poblado.nombre }} ({{ "{:,}".format(mas_poblado.poblacion) }} habitantes)
+    </p>
+    <p>
+        <strong>País menos poblado:</strong> 
+        {{ menos_poblado.nombre }} ({{ "{:,}".format(menos_poblado.poblacion) }} habitantes)
+    </p>
+    <hr>
+
+    <!-- Sección 2: Promedios Globales -->
+    <h2>Promedios Globales</h2>
+    <p>
+        <strong>Población promedio:</strong> {{ "{:,.0f}".format(prom_poblacion) }} habitantes
+    </p>
+    <p>
+        <strong>Superficie promedio:</strong> {{ "{:,.0f}".format(prom_superficie) }} km²
+    </p>
+    <hr>
+
+    <!-- Sección 3: Conteo por Continente -->
+    <h2>Cantidad de Países por Continente</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Continente</th>
+                <th>Número de Países</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for continente, conteo in conteo_continentes.items() %}
+            <tr>
+                <td>{{ continente }}</td>
+                <td>{{ conteo }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
