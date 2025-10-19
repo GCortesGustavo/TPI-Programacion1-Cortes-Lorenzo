@@ -48,7 +48,6 @@ def main():
         elif opcion_menu == "6":
             print("\nHas elegido la opción 6: Mostrar estadísticas")
             gestionar_estadisticas(lista_paises)
-            pass
         elif opcion_menu == "7":
             print("\nGracias por utilizar el programa")
             bandera_menu_princial = False
