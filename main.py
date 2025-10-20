@@ -1,5 +1,5 @@
 from utils.buscar_pais import buscar_pais_por_nombre
-from utils.carga_datos import cargar_paises_desde_csv
+from utils.carga_datos import obtener_paises_de_api, guardar_paises_en_csv, cargar_paises_desde_csv
 from utils.filtro_continente import gestionar_filtro_continente
 from utils.filtro_rango_poblacion import filtrar_por_rango_poblacion
 from utils.menu import mostrar_menu
@@ -9,6 +9,13 @@ from utils.estadisticas import gestionar_estadisticas
 
 def main():
     NOMBRE_ARCHIVO_CSV = "paises.csv"
+
+    paises_de_api = obtener_paises_de_api()
+
+    if paises_de_api:
+        guardar_paises_en_csv(paises_de_api, NOMBRE_ARCHIVO_CSV)
+    else:
+        print("No se pudo obtener datos de la API. El programa podría no funcionar como se espera.")
 
     lista_paises = cargar_paises_desde_csv(NOMBRE_ARCHIVO_CSV)
     
