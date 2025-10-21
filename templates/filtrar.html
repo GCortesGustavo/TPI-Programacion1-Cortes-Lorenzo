@@ -1,4 +1,3 @@
-<!-- Dentro de templates/filtrar.html -->
 {% extends "layout.html" %}
 
 {% block title %}Filtrar Países{% endblock %}
@@ -8,14 +7,29 @@
     <p>Puedes usar uno o varios filtros a la vez. Deja los campos en blanco para ignorarlos.</p>
 
     <style>
-        .filter-form { display: flex; gap: 20px; align-items: flex-end; background-color: #f9f9f9; padding: 20px; border-radius: 8px; margin-bottom: 20px;}
-        .filter-group { display: flex; flex-direction: column; }
-        .filter-group label { margin-bottom: 5px; font-weight: bold; }
-        .filter-group input, .filter-group select { padding: 8px; }
+        .filter-form { 
+            display: flex; 
+            gap: 20px; align-items: 
+            flex-end; background-color: #f9f9f9; 
+            padding: 20px; 
+            border-radius: 8px; 
+            margin-bottom: 20px;
+        }
+        .filter-group { 
+            display: flex; 
+            flex-direction: column; 
+        }
+        .filter-group label { 
+            margin-bottom: 5px; 
+            font-weight: bold; 
+        }
+        .filter-group input, 
+        .filter-group select { 
+            padding: 8px; 
+        }
     </style>
 
     <form method="GET" action="/filtrar" class="filter-form">
-        <!-- Filtro 1: Continente -->
         <div class="filter-group">
             <label for="continente">Continente:</label>
             <select id="continente" name="continente">
@@ -26,14 +40,12 @@
             </select>
         </div>
 
-        <!-- Filtro 2: Población -->
         <div class="filter-group">
             <label>Población:</label>
             <input type="number" name="pob_min" placeholder="Mínima" value="{{ filtros_actuales.pob_min }}">
             <input type="number" name="pob_max" placeholder="Máxima" value="{{ filtros_actuales.pob_max }}">
         </div>
 
-        <!-- Filtro 3: Superficie -->
         <div class="filter-group">
             <label>Superficie (km²):</label>
             <input type="number" name="sup_min" placeholder="Mínima" value="{{ filtros_actuales.sup_min }}">

@@ -12,7 +12,7 @@ def obtener_paises_de_api():
         respuesta.raise_for_status()
         datos_api = respuesta.json() 
         
-        paises_seleccionados = random.sample(datos_api, 10)
+        paises_seleccionados = random.sample(datos_api, 20)
         
         for pais_data in paises_seleccionados:
             nombre = pais_data.get('name', {}).get('common', 'N/A')
