@@ -1,25 +1,25 @@
 :root {
-    --blue-50: #eefff0;
-    --blue-100: #d8ffe0;
-    --blue-200: #b3ffc0;
-    --blue-300: #77fe92;
-    --blue-400: #35f35b;
-    --blue-500: #0BD534;
-    --blue-600: #02b727;
-    --blue-700: #068f22;
-    --blue-800: #0b7020;
-    --blue-900: #0b5c1e;
-    --blue-950: #00340c;
+    --green-50: #eefff0;
+    --green-100: #d8ffe0;
+    --green-200: #b3ffc0;
+    --green-300: #77fe92;
+    --green-400: #35f35b;
+    --green-500: #0BD534;
+    --green-600: #02b727;
+    --green-700: #068f22;
+    --green-800: #0b7020;
+    --green-900: #0b5c1e;
+    --green-950: #00340c;
     
-    --bg-color: var(--blue-50);
+    --bg-color: var(--green-50);
     --text-color: #333;
-    --primary-color: var(--blue-700);
-    --primary-dark: var(--blue-900);
-    --accent-color: var(--blue-400);
+    --primary-color: var(--green-700);
+    --primary-dark: var(--green-900);
+    --accent-color: var(--green-400);
     --card-bg: #FFFFFF;
-    --border-color: var(--blue-200);
-    --header-bg: var(--blue-950);
-    --header-text: var(--blue-100);
+    --border-color: var(--green-200);
+    --header-bg: var(--green-950);
+    --header-text: var(--green-100);
 }
 
 body {
@@ -102,17 +102,17 @@ th, td {
 }
 
 thead th {
-    background-color: var(--blue-100);
+    background-color: var(--green-100);
     font-weight: bold;
     color: var(--primary-dark);
 }
 
 tbody tr:nth-child(even) {
-    background-color: var(--blue-50);
+    background-color: var(--green-50);
 }
 
 tbody tr:hover {
-    background-color: var(--blue-200);
+    background-color: var(--green-200);
 }
 
 .card {
@@ -174,7 +174,7 @@ input[type="text"], input[type="number"], select {
 }
 
 .btn-primary:hover {
-    background-color: var(--blue-800);
+    background-color: var(--green-800);
 }
 
 .btn-secondary {
