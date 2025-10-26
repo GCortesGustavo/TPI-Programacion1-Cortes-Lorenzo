@@ -1,6 +1,5 @@
 def ordenar_paises(lista_paises, criterio='nombre', orden='asc'):
     if criterio not in ['nombre', 'poblacion', 'superficie']:
-        # Si el criterio no es válido, por seguridad, ordenamos por nombre
         criterio = 'nombre'
 
     reverse_flag = (orden == 'desc')

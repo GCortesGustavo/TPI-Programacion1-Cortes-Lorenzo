@@ -1,16 +1,17 @@
 {% extends "layout.html" %}
-
 {% block title %}Buscar País{% endblock %}
-
 {% block content %}
-    <h1>Buscar País por Nombre (Búsqueda Parcial)</h1>
-    <form method="GET" action="/buscar">
-        <input type="text" name="query" placeholder="Nombre o parte del nombre..." value="{{ query }}">
-        <button type="submit">Buscar</button>
-        <a href="/buscar">Limpiar</a>
-    </form>
+    <div class="card">
+        <h1>Buscar País</h1>
+        <p>Realiza una búsqueda parcial por nombre.</p>
+        <form method="GET" action="{{ url_for('buscar_web') }}" class="form-group">
+            <input type="text" name="query" placeholder="Nombre o parte del nombre..." value="{{ query }}">
+            <button type="submit" class="btn btn-primary">Buscar</button>
+            <a href="{{ url_for('buscar_web') }}" class="btn btn-secondary">Limpiar</a>
+        </form>
+    </div>
 
-    {% if paises_encontrados is not none %}
+    {% if query %}
         <h2>Resultados para "{{ query }}"</h2>
         {% if paises_encontrados %}
             <table>

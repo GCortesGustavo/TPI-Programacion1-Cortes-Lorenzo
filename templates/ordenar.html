@@ -1,31 +1,31 @@
 {% extends "layout.html" %}
-
 {% block title %}Ordenar Países{% endblock %}
-
 {% block content %}
-    <h1>Ordenar Países</h1>
-    <p>Selecciona un criterio y un orden para visualizar la lista.</p>
+    <div class="card">
+        <h1>Ordenar Países</h1>
+        <p>Selecciona un criterio y un orden para visualizar la lista.</p>
 
-    <style>
-        .sort-form { display: flex; gap: 15px; align-items: center; background-color: #f9f9f9; padding: 20px; border-radius: 8px; margin-bottom: 20px;}
-    </style>
+        <form method="GET" action="{{ url_for('ordenar_web') }}" class="sort-form">
+            <div>
+                <label for="sort_by">Ordenar por:</label>
+                <select id="sort_by" name="sort_by">
+                    <option value="nombre" {% if sort_by == 'nombre' %}selected{% endif %}>Nombre</option>
+                    <option value="poblacion" {% if sort_by == 'poblacion' %}selected{% endif %}>Población</option>
+                    <option value="superficie" {% if sort_by == 'superficie' %}selected{% endif %}>Superficie</option>
+                </select>
+            </div>
 
-    <form method="GET" action="/ordenar" class="sort-form">
-        <label for="sort_by">Ordenar por:</label>
-        <select id="sort_by" name="sort_by">
-            <option value="nombre" {% if sort_by == 'nombre' %}selected{% endif %}>Nombre</option>
-            <option value="poblacion" {% if sort_by == 'poblacion' %}selected{% endif %}>Población</option>
-            <option value="superficie" {% if sort_by == 'superficie' %}selected{% endif %}>Superficie</option>
-        </select>
-
-        <label for="order">Orden:</label>
-        <select id="order" name="order">
-            <option value="asc" {% if order == 'asc' %}selected{% endif %}>Ascendente</option>
-            <option value="desc" {% if order == 'desc' %}selected{% endif %}>Descendente</option>
-        </select>
-        
-        <button type="submit">Ordenar</button>
-    </form>
+            <div>
+                <label for="order">Orden:</label>
+                <select id="order" name="order">
+                    <option value="asc" {% if order == 'asc' %}selected{% endif %}>Ascendente</option>
+                    <option value="desc" {% if order == 'desc' %}selected{% endif %}>Descendente</option>
+                </select>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Ordenar</button>
+        </form>
+    </div>
 
     <h2>Lista Ordenada</h2>
     <table>
