@@ -1,13 +1,9 @@
-# Dentro de main.py
-
-# --- 1. IMPORTACIONES CORRECTAS Y CORREGIDAS ---
 from utils.carga_datos import obtener_paises_de_api, guardar_paises_en_csv, cargar_paises_desde_csv
 from utils.buscar_pais import buscar_pais
 from utils.filtro_continente import filtrar_por_continente
 from utils.filtro_rango_poblacion import filtrar_por_poblacion
 from utils.filtro_rango_superficie import filtrar_por_superficie
 from utils.ordenar_paises import ordenar_paises
-# CORRECCIÓN: Ya no importamos 'mostrar_menu_estadisticas' de aquí
 from utils.estadisticas import (
     calcular_extremos_poblacion,
     calcular_promedios,
@@ -15,7 +11,6 @@ from utils.estadisticas import (
 )
 from utils.menu import mostrar_menu
 
-# --- 2. FUNCIONES DE PRESENTACIÓN DE CONSOLA ---
 
 def mostrar_tabla_paises(lista_paises, titulo="Resultados"):
     """Función reutilizable para imprimir una lista de países en formato tabla."""
@@ -32,7 +27,6 @@ def mostrar_tabla_paises(lista_paises, titulo="Resultados"):
         print(f"{pais['nombre']:<30} | {poblacion:>15} | {superficie:>18} | {pais['continente']:<15}")
     print("-" * 85)
 
-# CORRECCIÓN: Añadimos la función de menú de estadísticas aquí, en la capa de presentación.
 def mostrar_menu_estadisticas():
     """Imprime en la consola el sub-menú de opciones de estadísticas."""
     print("\n--- SUB-MENÚ DE ESTADÍSTICAS ---")
@@ -42,7 +36,6 @@ def mostrar_menu_estadisticas():
     print("4. Volver al Menú Principal")
     print("----------------------------------")
 
-# --- 3. FUNCIONES GESTORAS PARA LA CONSOLA ---
 
 def gestionar_busqueda_consola(lista_paises):
     query = input("Ingrese el nombre (o parte del nombre) del país a buscar: ")
@@ -50,7 +43,6 @@ def gestionar_busqueda_consola(lista_paises):
     mostrar_tabla_paises(resultados, f"Resultados para '{query}'")
 
 def gestionar_filtros_consola(lista_paises):
-    # Aquí podríamos crear un sub-menú de filtros, pero por ahora lo simplificamos
     print("Filtro por continente:")
     continente = input("Ingrese el nombre del continente: ")
     resultados = filtrar_por_continente(lista_paises, continente)
@@ -66,7 +58,6 @@ def gestionar_ordenamiento_consola(lista_paises):
 
 def gestionar_estadisticas_consola(lista_paises):
     while True:
-        # Ahora esta llamada funciona porque la función está definida en este mismo archivo.
         mostrar_menu_estadisticas()
         opcion = input("Seleccione una opción de estadística: ")
         if opcion == '1':
@@ -88,7 +79,6 @@ def gestionar_estadisticas_consola(lista_paises):
         else:
             print("Opción no válida.")
 
-# --- 4. FUNCIÓN PRINCIPAL ---
 def main():
     NOMBRE_ARCHIVO_CSV = "paises.csv"
     
