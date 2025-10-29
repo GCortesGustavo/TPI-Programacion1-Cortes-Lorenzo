@@ -58,3 +58,59 @@ Para iniciar la aplicación, ejecuta el archivo principal `main.py` desde la ter
 ```bash
 python main.py
 ```
+
+1. Ejecución principal
+El archivo main.py es el punto de entrada del programa.
+
+    Al ejecutarse, muestra el menú principal en la terminal y permite al usuario seleccionar las distintas opciones disponibles.
+
+2. Interacción con el usuario
+    La lógica del menú se gestiona en el archivo menu.py, donde el usuario puede elegir las distintas operaciones sobre los datos del archivo paises.csv.
+
+3. Búsqueda de país — buscar_pais.py
+
+    Permite buscar un país por su nombre.
+
+    Si el país existe, se muestran sus datos.
+
+    Si no se encuentra, retorna un mensaje o valor indicando que no existe.
+
+4. Filtro por continente — filtro_continente.py
+
+    Filtra los países según el continente ingresado por el usuario.
+
+    Retorna una lista con todos los países pertenecientes a dicho continente.
+
+5. Filtro poblacional — filtro_rango_poblacion.py
+
+    El usuario ingresa un valor mínimo y máximo de población.
+
+    Se muestran los países cuya población se encuentra dentro de ese rango.
+
+6. Filtro por superficie — filtro_rango_superficie.py
+
+    Funciona de forma similar al filtro poblacional.
+
+    El usuario define los valores mínimo y máximo de superficie (en km²).
+
+    Se retornan los países que se encuentren dentro de los límites establecidos.
+
+7. Ordenar países alfabéticamente — ordenar_paises.py
+
+    Reorganiza los datos del archivo CSV en orden ascendente (A–Z) según el nombre de los países.
+
+    El resultado puede guardarse o visualizarse dependiendo de la implementación.
+
+8. Cálculo de estadísticas — estadisticas.py
+
+    Calcula y muestra distintos valores estadísticos sobre los países:
+
+    Promedio de los países más poblados.
+
+    Promedio de los países menos poblados.
+
+    Promedio general de superficie.
+
+9. Carga de datos — carga_datos.py
+
+    Se encarga de la lectura del archivo paises.csv y la conversión de los datos a estructuras utilizables dentro del programa (por ejemplo, listas o diccionarios).
