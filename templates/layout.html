@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Gestión de Países{% endblock %} - TPI Programación</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">TPI Países</div>
+            <div class="nav-links">
+                <a href="{{ url_for('index') }}">Lista</a>
+                <a href="{{ url_for('ordenar_web') }}">Ordenar</a>
+                <a href="{{ url_for('buscar_web') }}">Buscar</a>
+                <a href="{{ url_for('filtrar_web') }}">Filtrar</a>
+                <a href="{{ url_for('estadisticas_web') }}">Estadísticas</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

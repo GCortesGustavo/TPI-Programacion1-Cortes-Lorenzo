@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+{% block title %}Estadísticas Globales{% endblock %}
+{% block content %}
+    <h1>Panel de Estadísticas</h1>
+    <p>Un resumen de los datos de los países cargados.</p>
+
+    <div class="card">
+        <h2>Extremos de Población</h2>
+        {% if mas_poblado and menos_poblado %}
+        <p>
+            <strong>País más poblado:</strong> 
+            {{ mas_poblado.nombre }} ({{ "{:,}".format(mas_poblado.poblacion) }} habitantes)
+        </p>
+        <p>
+            <strong>País menos poblado:</strong> 
+            {{ menos_poblado.nombre }} ({{ "{:,}".format(menos_poblado.poblacion) }} habitantes)
+        </p>
+        {% else %}
+        <p>No hay datos suficientes para calcular los extremos.</p>
+        {% endif %}
+    </div>
+
+    <div class="card">
+        <h2>Promedios Globales</h2>
+        <p>
+            <strong>Población promedio:</strong> {{ "{:,.0f}".format(prom_poblacion) }} habitantes
+        </p>
+        <p>
+            <strong>Superficie promedio:</strong> {{ "{:,.0f}".format(prom_superficie) }} km²
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Cantidad de Países por Continente</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Continente</th>
+                    <th>Número de Países</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for continente, conteo in conteo_continentes.items() %}
+                <tr>
+                    <td>{{ continente }}</td>
+                    <td>{{ conteo }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

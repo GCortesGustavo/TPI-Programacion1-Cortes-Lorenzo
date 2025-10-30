@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+{% block title %}Filtrar Países{% endblock %}
+{% block content %}
+    <div class="card">
+        <h1>Filtrar Países</h1>
+        <p>Puedes usar uno o varios filtros a la vez. Deja los campos en blanco para ignorarlos.</p>
+
+        <form method="GET" action="{{ url_for('filtrar_web') }}" class="filter-form">
+            <div class="filter-group">
+                <label for="continente">Continente:</label>
+                <select id="continente" name="continente">
+                    <option value="">Todos</option>
+                    {% for c in continentes %}
+                    <option value="{{ c }}" {% if c == filtros_actuales.continente %}selected{% endif %}>{{ c }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label>Población:</label>
+                <input type="number" name="pob_min" placeholder="Mínima" value="{{ filtros_actuales.pob_min }}">
+                <input type="number" name="pob_max" placeholder="Máxima" value="{{ filtros_actuales.pob_max }}">
+            </div>
+
+            <div class="filter-group">
+                <label>Superficie (km²):</label>
+                <input type="number" name="sup_min" placeholder="Mínima" value="{{ filtros_actuales.sup_min }}">
+                <input type="number" name="sup_max" placeholder="Máxima" value="{{ filtros_actuales.sup_max }}">
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Filtrar</button>
+            <a href="{{ url_for('filtrar_web') }}" class="btn btn-secondary">Limpiar</a>
+        </form>
+    </div>
+
+    {% if request.args %}
+        <h2>Resultados del Filtro</h2>
+        {% if paises %}
+            <p>{{ paises|length }} países encontrados.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Continente</th>
+                        <th>Población</th>
+                        <th>Superficie (km²)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for pais in paises %}
+                    <tr>
+                        <td>{{ pais.nombre }}</td>
+                        <td>{{ pais.continente }}</td>
+                        <td>{{ "{:,}".format(pais.poblacion) }}</td>
+                        <td>{{ "{:,}".format(pais.superficie) }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No se encontraron países que coincidan con los filtros aplicados.</p>
+        {% endif %}
+    {% endif %}
+{% endblock %}

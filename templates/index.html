@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block title %}TPI-Programación I{% endblock %}
+{% block content %}
+    <h1>Lista Completa de Países</h1>
+    <p>Países Cargados de la API:</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Continente</th>
+                <th>Población</th>
+                <th>Superficie (km²)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pais in paises %}
+            <tr>
+                <td>{{ pais.nombre }}</td>
+                <td>{{ pais.continente }}</td>
+                <td>{{ "{:,}".format(pais.poblacion) }}</td>
+                <td>{{ "{:,}".format(pais.superficie) }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

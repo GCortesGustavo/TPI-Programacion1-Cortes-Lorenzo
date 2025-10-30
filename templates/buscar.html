@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block title %}Buscar País{% endblock %}
+{% block content %}
+    <div class="card">
+        <h1>Buscar País</h1>
+        <p>Realiza una búsqueda parcial por nombre.</p>
+        <form method="GET" action="{{ url_for('buscar_web') }}" class="form-group">
+            <input type="text" name="query" placeholder="Nombre o parte del nombre..." value="{{ query }}">
+            <button type="submit" class="btn btn-primary">Buscar</button>
+            <a href="{{ url_for('buscar_web') }}" class="btn btn-secondary">Limpiar</a>
+        </form>
+    </div>
+
+    {% if query %}
+        <h2>Resultados para "{{ query }}"</h2>
+        {% if paises_encontrados %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Continente</th>
+                        <th>Población</th>
+                        <th>Superficie (km²)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for pais in paises_encontrados %}
+                    <tr>
+                        <td>{{ pais.nombre }}</td>
+                        <td>{{ pais.continente }}</td>
+                        <td>{{ "{:,}".format(pais.poblacion) }}</td>
+                        <td>{{ "{:,}".format(pais.superficie) }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No se encontraron países que contengan "{{ query }}".</p>
+        {% endif %}
+    {% endif %}
+{% endblock %}
