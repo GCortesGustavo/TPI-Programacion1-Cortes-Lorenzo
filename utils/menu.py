@@ -1,4 +1,4 @@
-def mostrar_menu():
+def mostrar_menu(): #muestra el menu principal
     print("Menú de opciones")
     print("""
     Gestíon de Datos de países:

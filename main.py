@@ -12,10 +12,10 @@ from utils.estadisticas import (
 from utils.menu import mostrar_menu
 
 
-def mostrar_tabla_paises(lista_paises, titulo="Resultados"):
+def mostrar_tabla_paises(lista_paises, titulo="Resultados"): #Muestra una tabla simple de los paises en el csv
     """Función reutilizable para imprimir una lista de países en formato tabla."""
-    if not lista_paises:
-        print(f"\n>> No se encontraron países para mostrar.")
+    if not lista_paises: 
+        print(f"\n>> No se encontraron países para mostrar.") 
         return
 
     print(f"\n--- {titulo} ---")
@@ -27,7 +27,7 @@ def mostrar_tabla_paises(lista_paises, titulo="Resultados"):
         print(f"{pais['nombre']:<30} | {poblacion:>15} | {superficie:>18} | {pais['continente']:<15}")
     print("-" * 85)
 
-def mostrar_menu_estadisticas():
+def mostrar_menu_estadisticas():  #muestra el menu de estadisticas
     """Imprime en la consola el sub-menú de opciones de estadísticas."""
     print("\n--- SUB-MENÚ DE ESTADÍSTICAS ---")
     print("1. País con Mayor y Menor Población")
@@ -37,26 +37,26 @@ def mostrar_menu_estadisticas():
     print("----------------------------------")
 
 
-def gestionar_busqueda_consola(lista_paises):
+def gestionar_busqueda_consola(lista_paises): #gestiona la busqueda de paises ingresando el nombre
     query = input("Ingrese el nombre (o parte del nombre) del país a buscar: ")
     resultados = buscar_pais(lista_paises, query)
     mostrar_tabla_paises(resultados, f"Resultados para '{query}'")
 
-def gestionar_filtros_consola(lista_paises):
+def gestionar_filtros_consola(lista_paises): #gestiona los filtros de paises por contiente
     print("Filtro por continente:")
     continente = input("Ingrese el nombre del continente: ")
     resultados = filtrar_por_continente(lista_paises, continente)
     mostrar_tabla_paises(resultados, f"Países en {continente.capitalize()}")
     # Se podrían añadir aquí las peticiones para los otros filtros...
 
-def gestionar_ordenamiento_consola(lista_paises):
+def gestionar_ordenamiento_consola(lista_paises): #gestiona el ordenamiento de paises por nombre, poblacion o superficie en el csv
     criterio = input("Ordenar por (nombre, poblacion, superficie): ").lower()
     orden = input("Orden (asc, desc): ").lower()
     
     resultados = ordenar_paises(lista_paises, criterio, orden)
     mostrar_tabla_paises(resultados, f"Países ordenados por {criterio} ({orden})")
 
-def gestionar_estadisticas_consola(lista_paises):
+def gestionar_estadisticas_consola(lista_paises): #gestiona las estadisticas de los paises en el csv
     while True:
         mostrar_menu_estadisticas()
         opcion = input("Seleccione una opción de estadística: ")
@@ -79,7 +79,7 @@ def gestionar_estadisticas_consola(lista_paises):
         else:
             print("Opción no válida.")
 
-def main():
+def main(): #funcion principal que ejecuta el programa
     NOMBRE_ARCHIVO_CSV = "paises.csv"
     
     paises_de_api = obtener_paises_de_api()
@@ -99,7 +99,7 @@ def main():
         opcion_menu = input("Selecciona una opción del menú: ")
 
         if opcion_menu == "1":
-            gestionar_busqueda_consola(lista_paises)
+            gestionar_busqueda_consola(lista_paises) 
         elif opcion_menu == "2":
             gestionar_filtros_consola(lista_paises)
         elif opcion_menu == "3":
