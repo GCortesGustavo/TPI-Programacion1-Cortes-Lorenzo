@@ -3,7 +3,7 @@ import csv
 import random   
 
 def obtener_paises_de_api(): #obtiene datos de paises desde la API
-    url_api = "https://restcountries.com/v3.1/independent?status=true"
+    url_api = "https://restcountries.com/v3.1/all?fields=name,population,area,continents"
     paises_formateados = [] #lista para almacenar los paises obtenidos
 
     print("Obteniendo datos de la API de restcountries.com...")

@@ -10,15 +10,17 @@ from utils.estadisticas import calcular_extremos_poblacion, calcular_promedios, 
 # CONFIGURACIÓN INICIAL DE LA APP 
 app = Flask(__name__)
 
+NOMBRE_ARCHIVO_CSV = 'paises.csv'
+
 # Generamos un CSV cada vez que la aplicación se inicia
 print("Iniciando carga de datos desde la API...")
 paises_api = obtener_paises_de_api()
 if paises_api:
-    guardar_paises_en_csv(paises_api, 'paises.csv')
+    guardar_paises_en_csv(paises_api, NOMBRE_ARCHIVO_CSV)
 else:
     print("ADVERTENCIA: No se pudo obtener datos de la API. Se usará el último CSV guardado si existe.")
 
-lista_paises = cargar_paises_desde_csv('paises.csv') #guarda la lista de paises en una lista
+lista_paises = cargar_paises_desde_csv(NOMBRE_ARCHIVO_CSV) #guarda la lista de paises en una lista
 print(f"Carga completa. {len(lista_paises)} países listos para servir.")
 
 
