@@ -12,7 +12,7 @@ def obtener_paises_de_api(): #obtiene datos de paises desde la API
         respuesta.raise_for_status() #verifica si la solicitud fue exitosa
         datos_api = respuesta.json()  #convierte la respuesta a formato JSON
         
-        paises_seleccionados = random.sample(datos_api, 20) #selecciona 20 paises aleatoriamente
+        paises_seleccionados = random.sample(datos_api, 50) #selecciona 50 paises aleatoriamente
         
         for pais_data in paises_seleccionados: #itera sobre los datos de cada pais
             nombre = pais_data.get('name', {}).get('common', 'N/A')
