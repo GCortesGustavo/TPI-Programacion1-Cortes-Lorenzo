@@ -1,3 +1,5 @@
+# ESTE ARCHIVO YA NO TIENE USO POR EL CAMBIO HACIA FLASK- SE MANEJA LA INFORMACIÓN EN APP.PY
+
 from utils.carga_datos import obtener_paises_de_api, guardar_paises_en_csv, cargar_paises_desde_csv
 from utils.buscar_pais import buscar_pais
 from utils.filtro_continente import filtrar_por_continente

@@ -93,7 +93,7 @@ Este método es el más sencillo y garantiza que la aplicación funcione correct
     Este comando inicia la aplicación y la hace accesible en tu máquina.
 
     ```bash
-    docker run -it --rm -p 5000:5000 tpi-web-final
+    docker run -it --rm -p 5000:5000 -v ${PWD}:/app tpi-web-final
     ```
 
 4.  **Accede a la aplicación:**
@@ -153,8 +153,7 @@ Este método es útil si deseas modificar el código y ver los cambios al instan
 
 En el siguiente video se explica el problema planteado, la estructura de datos, y se realiza una demostración de la aplicación funcionando.
 
-[![Ver Video Tutorial](https://img.youtube.com/vi/ID_DEL_VIDEO/0.jpg)](https://www.youtube.com/watch?v=ID_DEL_VIDEO)
-** [Ver Video Tutorial en YouTube]([URL-DEL-VIDEO-AQUI])**
+** [Ver Video Tutorial en YouTube](https://youtu.be/JK3l1METNo8)**
 
 ---
 

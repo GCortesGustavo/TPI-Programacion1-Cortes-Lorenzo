@@ -1,3 +1,5 @@
+# ESTE ARCHIVO YA NO TIENE USO POR EL CAMBIO HACIA FLASK
+
 def mostrar_menu(): #muestra el menu principal
     print("Menú de opciones")
     print("""
